@@ -10,11 +10,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PadariaService {
 
-
-    public PadariaService(PadariaRepository padariaRepository) {
-        this.padariaRepository = padariaRepository;
-    }
-
     private final PadariaRepository padariaRepository;
 
     // Salvar nova padaria
@@ -25,7 +20,7 @@ public class PadariaService {
     // Buscar padaria por ID
     public Padaria buscarPorId(Long id) {
         return padariaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Item de padaria não encontrado com Id: " + id));
+                .orElseThrow(() -> new RuntimeException("Padaria não encontrada com ID: " + id));
     }
 
     // Listar todas as padarias
@@ -36,7 +31,7 @@ public class PadariaService {
     // Atualizar padaria existente
     public void atualizarPadaria(Long id, Padaria novaPadaria) {
         Padaria existente = padariaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Item de padaria não encontrado com Id: " + id));
+                .orElseThrow(() -> new RuntimeException("Padaria não encontrada com ID: " + id));
 
         existente.setNome(novaPadaria.getNome());
         existente.setPreco(novaPadaria.getPreco());
@@ -48,7 +43,7 @@ public class PadariaService {
     // Deletar padaria por ID
     public void deletarPorId(Long id) {
         if (!padariaRepository.existsById(id)) {
-            throw new RuntimeException("Item de padaria não encontrado com Id: " + id);
+            throw new RuntimeException("Padaria não encontrada com ID: " + id);
         }
         padariaRepository.deleteById(id);
     }

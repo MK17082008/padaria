@@ -8,6 +8,7 @@ import com.kalleo.padaria.infrastructure.repository.CompraRepository;
 import com.kalleo.padaria.infrastructure.repository.PadariaRepository;
 import com.kalleo.padaria.infrastructure.repository.UsuarioRepository;
 import jakarta.persistence.Id;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,8 @@ public class CompraService {
         // Corrigido: use getProdutosIds() se o DTO tiver esse método
         List<Padaria> produtos = padariaRepository.findAllById(dto.getProdutosIds());
 
-        Compra compra = Compra.builder()
+        Compra compra = Compra
+                .builder()
                 .usuario(usuario)
                 .produtos(produtos)
                 .dataCompra(LocalDateTime.now())

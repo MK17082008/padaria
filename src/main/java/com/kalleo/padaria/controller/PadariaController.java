@@ -14,10 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PadariaController {
 
-    public PadariaController(PadariaService padariaService) {
-        this.padariaService = padariaService;
-    }
-
     private final PadariaService padariaService;
 
     // Criar nova padaria

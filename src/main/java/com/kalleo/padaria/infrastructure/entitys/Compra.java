@@ -7,13 +7,14 @@ import lombok.experimental.SuperBuilder;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+@Entity
+@Table(name = "compra")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder(toBuilder = true)
-@Entity
-@Table(name = "tb_compra")
+@AllArgsConstructor
+@Builder // <-- ESSENCIAL para usar Compra.builder()
 public class Compra {
 
     @Id
