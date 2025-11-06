@@ -17,19 +17,35 @@ document.getElementById("formUsuario").addEventListener("submit", async function
         });
 
         if (response.status === 201) {
-            alert("Usuario cadastrado com sucesso!" ${response.status}`);
+            alert("Usuario cadastrado com sucesso!");
+            document.getElementById("formUsuario").reset();
+        }else{
+        alert("Erro ao cadastrar usuario");
         }
-
-        const data = await response.json();
-        console.log("Usuário cadastrado com sucesso:", data);
-        alert("Usuário cadastrado com sucesso!");
-
-        // Limpa o formulário
-        document.getElementById("formUsuario").reset();
-
     } catch (error) {
-        console.error("Erro ao enviar requisição:", error);
-        alert("Erro ao cadastrar usuário. Verifique os dados e tente novamente.");
+        alert("Erro de conexão com o servidor.");
+        console.error(error);
     }
 });
+async function buscarUsuario(){
+    const cpf = document.getElementById("buscarCpf").value;
+
+
+    try{
+        const response = await  fetch('http://localhost:8080/usuario?cpf=${cpf}');
+
+
+        if (response.ok) {
+            const usuario = await response.json();
+            document.getElementById("resultado").textContent = JSON.stringify(usuario, null, 2);
+        }else{
+            document.getElementById("resultado").textContent = "Usuario não encontrado.";
+        }
+    }catch (error){
+        document.getElementById("resultado").textContent = "Erro ao buscar usuario.";
+        console.error(error);
+    }
+
+
+
 }
