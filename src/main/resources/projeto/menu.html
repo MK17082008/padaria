@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <a href="padaria.html" class="scroll-btn">← Voltar para a Padaria</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padaria Pão & Sabor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Calda animada -->
+<div class="calda">
+    <div class="gota"></div>
+    <div class="gota"></div>
+    <div class="gota"></div>
+</div>
+
+<div class="container">
+    <div class="logo">🍞</div>
+    <h1 class="titulo">Menu da Padaria</h1>
+
+    <div class="produtos">
+
+        <!-- Pão Francês -->
+        <div class="produto">
+            <img src="https://guiadacozinha.com.br/wp-content/uploads/2018/10/paofrancesfolhado.jpg" alt="Pão Francês">
+            <h3>Pão Francês</h3>
+            <p>Fresquinho e crocante.</p>
+            <p class="preco">R$ 0,80</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Bolo de Chocolate -->
+        <div class="produto">
+            <img src="https://www.estadao.com.br/resizer/oFDrDp3xgfze9zuyNaR5gnyURVA=/arc-anglerfish-arc2-prod-estadao/public/FIVYQFU6J5ND3PYRA6XQHR4NW4.jpg" alt="Bolo de Chocolate">
+            <h3>Bolo de Chocolate</h3>
+            <p>Molhadinho e saboroso.</p>
+            <p class="preco">R$ 15,00</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Croissant -->
+        <div class="produto">
+            <img src="https://guiadacozinha.com.br/wp-content/uploads/2012/01/croissant-de-chocolate.jpg" alt="Croissant">
+            <h3>Croissant</h3>
+            <p>Perfeito para o café da manhã.</p>
+            <p class="preco">R$ 3,50</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Salgadinho -->
+        <div class="produto">
+            <img src="https://www.receiteria.com.br/wp-content/uploads/receitas-de-salgados-para-festa.jpg" alt="Salgadinho">
+            <h3>Salgadinho</h3>
+            <p>Quentinho e irresistível.</p>
+            <p class="preco">R$ 2,50</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Sonho -->
+        <div class="produto">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHLvp2jBTVjO3k8BwdAESo0MNp7hn9jQ3YoQ&s" alt="Sonho">
+            <h3>Sonho</h3>
+            <p>Recheado com creme, doce de leite ou chocolate.</p>
+            <p class="preco">R$ 4,00</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Tapioca -->
+        <div class="produto">
+            <img src="https://www.becel.com.br/-/media/Project/Upfield/Brands/Becel-NL/Becel-BR/Assets/Recipes/7c590968-6c5c-4559-9563-db8d88dd5467.jpg?rev=afbedbc49035449ea6837c72beb55bd0" alt="Tapioca">
+            <h3>Tapioca</h3>
+            <p>Feita na hora com recheios doces ou salgados.</p>
+            <p class="preco">R$ 6,00</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Suco -->
+        <div class="produto">
+            <img src="https://cptstatic.s3.amazonaws.com/imagens/enviadas/materias/materia19920/beneficios-dos-sucos-naturais-1-alfa-hotel.jpg" alt="Suco">
+            <h3>Suco Natural</h3>
+            <p>Sabores de laranja, maracujá, abacaxi, melancia e mais.</p>
+            <p class="preco">R$ 5,00</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Refrigerante -->
+        <div class="produto">
+            <img src="https://st3.depositphotos.com/1063437/19230/i/1600/depositphotos_192300154-stock-photo-bottles-of-global-soft-drink.jpg" alt="Refrigerante">
+            <h3>Refrigerante</h3>
+            <p>As principais marcas geladinhas.</p>
+            <p class="preco">R$ 6,00</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Torta de Frango -->
+        <div class="produto">
+            <img src="https://img.youtube.com/vi/svjygwQ1UjU/maxresdefault.jpg" alt="Torta de Frango">
+            <h3>Torta de Frango</h3>
+            <p>Recheio cremoso com frango desfiado e temperos da casa.</p>
+            <p class="preco">R$ 8,00</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <!-- Pudim -->
+        <div class="produto">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbvXoBiPYiQjYAHutAboFjMVh46cJKZm0NnA&s" alt="Pudim">
+            <h3>Pudim</h3>
+            <p>Leve, cremoso e com calda de caramelo irresistível.</p>
+            <p class="preco">R$ 7,00</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+    </div>
+</div>
+<!-- ====== Início: Carrinho + Pagamento ====== -->
+<style>
+    /* --- Estilos do carrinho e modal --- */
+    .cart-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background:#e76f51;
+        color:white;
+        border:none;
+        padding:12px 16px;
+        border-radius:50px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.15);
+        cursor:pointer;
+        z-index:1000;
+    }
+    .cart-count {
+        background:#2a9d8f;
+        padding:4px 8px;
+        border-radius:50px;
+        margin-left:8px;
+        font-weight:700;
+        font-size:13px;
+    }
+
+    .cart-panel {
+        position: fixed;
+        right: 20px;
+        bottom: 80px;
+        width: 340px;
+        max-height: 70vh;
+        background: white;
+        border-radius:12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        padding:16px;
+        overflow:auto;
+        z-index:1000;
+        display:none;
+    }
+
+    .cart-header {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:12px;
+    }
+    .cart-items { gap:10px; display:flex; flex-direction:column; }
+    .cart-item { display:flex; gap:10px; align-items:center; border-bottom:1px solid #f1f1f1; padding:8px 0; }
+    .cart-item img { width:56px; height:56px; object-fit:cover; border-radius:8px; }
+    .qty { width:56px; }
+    .cart-footer { margin-top:12px; display:flex; justify-content:space-between; align-items:center; }
+    .btn-primary { background:#2a9d8f; color:white; padding:10px 12px; border-radius:8px; border:none; cursor:pointer; }
+    .btn-secondary { background:#f4a261; color:white; padding:8px 10px; border-radius:8px; border:none; cursor:pointer; }
+
+    .modal-backdrop {
+        position:fixed; inset:0; background: rgba(0,0,0,0.5); display:none; align-items:center; justify-content:center; z-index:1500;
+    }
+    .modal {
+        width: 720px; max-width:95%; background:white; border-radius:12px; padding:18px; box-shadow:0 20px 60px rgba(0,0,0,0.3);
+        max-height:90vh; overflow:auto;
+    }
+    .modal .tabs { display:flex; gap:8px; margin-bottom:12px; }
+    .tab { padding:8px 12px; border-radius:8px; cursor:pointer; border:1px solid #eee; }
+    .tab.active { background:#2a9d8f; color:white; border-color:transparent; }
+
+    .payment-section { display:none; }
+    .payment-section.active { display:block; }
+
+    .qr-box { display:flex; gap:16px; align-items:center; }
+    .qr-box img { width:200px; height:200px; border-radius:8px; background:#f9f9f9; }
+    .small { font-size:13px; color:#555; }
+
+    /* responsividade */
+    @media (max-width:720px) {
+        .modal { width: 92%; padding:12px; }
+        .cart-panel { width: 92%; right: 4%; }
+    }
+</style>
+
+<!-- Botão do carrinho -->
+<button class="cart-btn" id="openCartBtn">
+    Carrinho <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<!-- Painel do carrinho -->
+<div class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-header">
+        <strong>Seu Carrinho</strong>
+        <button id="closeCartBtn" class="btn-secondary">Fechar</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <!-- itens preenchidos via JS -->
+    </div>
+
+    <div class="cart-footer">
+        <div>
+            <div class="small">Total</div>
+            <div id="cartTotal" style="font-weight:700; font-size:18px">R$ 0,00</div>
+        </div>
+        <div>
+            <button id="checkoutBtn" class="btn-primary" disabled>Finalizar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de pagamento -->
+<div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h2 id="modalTitle">Escolha a forma de pagamento</h2>
+
+        <div class="tabs" role="tablist" aria-label="Formas de pagamento">
+            <div class="tab active" data-target="pixSection">PIX (QR)</div>
+            <div class="tab" data-target="cardSection">Cartão</div>
+            <div class="tab" data-target="cashSection">Dinheiro</div>
+        </div>
+
+        <!-- PIX -->
+        <div id="pixSection" class="payment-section active">
+            <div style="display:flex; gap:16px; align-items:center;">
+                <div class="qr-box">
+                    <img id="pixQr" src="" alt="QR code PIX">
+                    <div>
+                        <div><strong>Chave PIX:</strong> <span id="pixKey">meu-pix@exemplo.com</span></div>
+                        <div class="small">Valor: <span id="pixAmount">R$ 0,00</span></div>
+                        <div class="small" style="margin-top:8px;">Escaneie o QR ou copie o código abaixo:</div>
+                        <textarea id="pixPayload" rows="3" style="width:260px; margin-top:6px;" readonly></textarea>
+                        <div style="margin-top:8px;">
+                            <button id="copyPixBtn" class="btn-secondary">Copiar código PIX</button>
+                            <button id="confirmPixBtn" class="btn-primary">Já paguei (Simular)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cartão -->
+        <div id="cardSection" class="payment-section">
+            <form id="cardForm">
+                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                    <div style="flex:1 1 100%;">
+                        <label>Número do cartão</label><br>
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" style="width:100%; padding:8px;">
+                    </div>
+
+                    <div style="flex:1 1 48%">
+                        <label>Validade (MM/AA)</label><br>
+                        <input type="text" id="cardExpiry" placeholder="08/28" maxlength="5" style="width:100%; padding:8px;">
+                    </div>
+
+                    <div style="flex:1 1 48%">
+                        <label>CVV</label><br>
+                        <input type="text" id="cardCvv" placeholder="123" maxlength="4" style="width:100%; padding:8px;">
+                    </div>
+
+                    <div style="flex:1 1 100%;">
+                        <label>Nome no cartão</label><br>
+                        <input type="text" id="cardName" placeholder="Nome como no cartão" style="width:100%; padding:8px;">
+                    </div>
+
+                    <div style="flex:1 1 100%; display:flex; gap:8px;">
+                        <button type="button" id="payCardBtn" class="btn-primary">Pagar com Cartão</button>
+                        <button type="button" id="cancelPaymentBtn" class="btn-secondary">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Dinheiro -->
+        <div id="cashSection" class="payment-section">
+            <div>
+                <div class="small">Total: <strong id="cashTotal">R$ 0,00</strong></div>
+                <div style="margin-top:8px;">
+                    <label>Valor entregue pelo cliente (R$)</label><br>
+                    <input type="number" id="cashGiven" min="0" step="0.01" placeholder="Ex: 20.00" style="padding:8px; width:160px;">
+                </div>
+                <div style="margin-top:8px;">
+                    <button id="calculateChangeBtn" class="btn-primary">Calcular Troco</button>
+                    <button id="cancelCashBtn" class="btn-secondary">Cancelar</button>
+                </div>
+                <div id="changeResult" style="margin-top:12px; font-weight:700;"></div>
+            </div>
+        </div>
+
+        <div style="margin-top:12px; text-align:right;">
+            <button id="closeModal" class="btn-secondary">Fechar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* ====== Lógica do carrinho ====== */
+    const cart = {}; // chave: idProduto, valor: {id, title, price, qty, img}
+    const cartCountEl = document.getElementById('cartCount');
+    const cartPanel = document.getElementById('cartPanel');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartItemsEl = document.getElementById('cartItems');
+    const cartTotalEl = document.getElementById('cartTotal');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+
+    openCartBtn.addEventListener('click', () => { cartPanel.style.display = 'block'; cartPanel.setAttribute('aria-hidden','false'); });
+    closeCartBtn.addEventListener('click', () => { cartPanel.style.display = 'none'; cartPanel.setAttribute('aria-hidden','true'); });
+
+    function formatPrice(v){
+        return 'R$ ' + v.toFixed(2).replace('.',',');
+    }
+
+    /* Adiciona funcionalidade "Adicionar ao carrinho" para botões existentes */
+    document.querySelectorAll('.produto').forEach((prod, index) => {
+        // criar id único por produto (pode melhorar com id do backend)
+        const id = prod.querySelector('h3')?.innerText?.trim() || ('prod_'+index);
+        const title = id;
+        const priceText = prod.querySelector('.preco')?.innerText || 'R$ 0,00';
+        // extrai número do preço
+        let price = 0;
+        const found = priceText.match(/[\d.,]+/);
+        if(found) price = parseFloat(found[0].replace('.', '').replace(',', '.'));
+        const img = prod.querySelector('img')?.src || '';
+
+        // cria botão "Adicionar ao carrinho" se não existir
+        if(!prod.querySelector('.add-cart-btn')){
+            const btn = document.createElement('button');
+            btn.className = 'botao add-cart-btn';
+            btn.style.marginTop = '8px';
+            btn.innerText = 'Adicionar ao carrinho';
+            btn.addEventListener('click', () => addToCart({id, title, price, img}));
+            prod.appendChild(btn);
+        }
+    });
+
+    function addToCart(item) {
+        if(cart[item.id]) cart[item.id].qty += 1;
+        else cart[item.id] = {...item, qty:1};
+        renderCart();
+    }
+
+    function removeFromCart(id){
+        delete cart[id];
+        renderCart();
+    }
+
+    function changeQty(id, qty){
+        if(qty <= 0) removeFromCart(id);
+        else cart[id].qty = qty;
+        renderCart();
+    }
+
+    function renderCart(){
+        cartItemsEl.innerHTML = '';
+        const keys = Object.keys(cart);
+        let total = 0;
+        keys.forEach(k => {
+            const it = cart[k];
+            total += it.price * it.qty;
+            const div = document.createElement('div');
+            div.className = 'cart-item';
+            div.innerHTML = `
+      <img src="${it.img}" alt="${it.title}">
+      <div style="flex:1;">
+        <div style="font-weight:700">${it.title}</div>
+        <div class="small">${formatPrice(it.price)} x ${it.qty} = ${formatPrice(it.price*it.qty)}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;">
+        <input class="qty" type="number" min="1" value="${it.qty}" style="width:60px;padding:6px;">
+        <button class="btn-secondary remove-btn" style="margin-top:8px;">Remover</button>
+      </div>
+    `;
+            // eventos
+            div.querySelector('.qty').addEventListener('change', (e) => {
+                const q = parseInt(e.target.value) || 1;
+                changeQty(k, q);
+            });
+            div.querySelector('.remove-btn').addEventListener('click', () => removeFromCart(k));
+            cartItemsEl.appendChild(div);
+        });
+        cartTotalEl.innerText = formatPrice(total);
+        cartCountEl.innerText = keys.reduce((s, id) => s + cart[id].qty, 0);
+        checkoutBtn.disabled = keys.length === 0;
+        // atualizar valores usados no modal
+        document.getElementById('pixAmount').innerText = formatPrice(total);
+        document.getElementById('cashTotal').innerText = formatPrice(total);
+    }
+
+    /* ====== Checkout / Pagamento (modal) ====== */
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const tabs = document.querySelectorAll('.tab');
+    const paymentSections = document.querySelectorAll('.payment-section');
+
+    tabs.forEach(t => t.addEventListener('click', () => {
+        tabs.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        const target = t.getAttribute('data-target');
+        paymentSections.forEach(s => s.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+    }));
+
+    checkoutBtn.addEventListener('click', () => {
+        if(Object.keys(cart).length === 0) return alert('Carrinho vazio');
+        modalBackdrop.style.display = 'flex';
+        modalBackdrop.setAttribute('aria-hidden','false');
+        generatePix(); // atualiza QR
+    });
+
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    document.getElementById('cancelPaymentBtn').addEventListener('click', closeModal);
+    document.getElementById('cancelCashBtn').addEventListener('click', closeModal);
+
+    function closeModal(){
+        modalBackdrop.style.display = 'none';
+        modalBackdrop.setAttribute('aria-hidden','true');
+    }
+
+    /* ====== PIX: gerar QR dinâmico (conteúdo simples) ====== */
+    const pixKeyEl = document.getElementById('pixKey'); // exibe chave
+    const pixQrEl = document.getElementById('pixQr');
+    const pixAmountEl = document.getElementById('pixAmount');
+    const pixPayloadEl = document.getElementById('pixPayload');
+    const copyPixBtn = document.getElementById('copyPixBtn');
+    const confirmPixBtn = document.getElementById('confirmPixBtn');
+
+    function generatePix(){
+        // chave (você pode personalizar)
+        const chave = 'meu-pix@exemplo.com';
+        pixKeyEl.innerText = chave;
+
+        // calcula total atual
+        let total = 0;
+        Object.values(cart).forEach(i => total += i.price * i.qty);
+
+        pixAmountEl.innerText = formatPrice(total);
+
+        // criar payload simples (aqui apenas exemplo - não é payload EMV completo)
+        const payload = `pix://chave=${chave}&valor=${total.toFixed(2)}`;
+        pixPayloadEl.value = payload;
+
+        // gerar QR com Google Chart API (simples)
+        const qrSrc = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=' + encodeURIComponent(payload);
+        pixQrEl.src = qrSrc;
+    }
+
+    copyPixBtn.addEventListener('click', () => {
+        pixPayloadEl.select();
+        document.execCommand('copy');
+        copyPixBtn.innerText = 'Copiado!';
+        setTimeout(()=> copyPixBtn.innerText = 'Copiar código PIX', 1200);
+    });
+
+    confirmPixBtn.addEventListener('click', () => {
+        // simula confirmação de pagamento
+        alert('Pagamento via PIX simulado. Obrigado!');
+        clearCartAfterPayment();
+    });
+
+    /* ====== Cartão: validação simples (Luhn) ====== */
+    document.getElementById('payCardBtn').addEventListener('click', () => {
+        const numberRaw = document.getElementById('cardNumber').value.replace(/\s+/g,'');
+        const expiry = document.getElementById('cardExpiry').value;
+        const cvv = document.getElementById('cardCvv').value;
+        const name = document.getElementById('cardName').value.trim();
+
+        if(!luhnCheck(numberRaw)) return alert('Número de cartão inválido (falha na validação).');
+        if(!/^\d{2}\/\d{2}$/.test(expiry)) return alert('Validade inválida. Use MM/AA.');
+        if(!/^\d{3,4}$/.test(cvv)) return alert('CVV inválido.');
+        if(name.length < 3) return alert('Nome inválido.');
+
+        // simular pagamento
+        setTimeout(() => {
+            alert('Pagamento com cartão simulado com sucesso. Obrigado!');
+            clearCartAfterPayment();
+        }, 700);
+    });
+
+    function luhnCheck(num){
+        if(!/^\d+$/.test(num)) return false;
+        let sum = 0, alt = false;
+        for(let i = num.length - 1; i >= 0; i--) {
+            let n = parseInt(num.charAt(i), 10);
+            if(alt) {
+                n *= 2;
+                if(n > 9) n -= 9;
+            }
+            sum += n;
+            alt = !alt;
+        }
+        return (sum % 10 === 0);
+    }
+
+    /* ====== Dinheiro: calcular troco ====== */
+    document.getElementById('calculateChangeBtn').addEventListener('click', () => {
+        const given = parseFloat(document.getElementById('cashGiven').value) || 0;
+        let total = 0;
+        Object.values(cart).forEach(i => total += i.price * i.qty);
+        const resultEl = document.getElementById('changeResult');
+        if(given < total) {
+            resultEl.style.color = 'red';
+            resultEl.innerText = `Valor insuficiente. Falta ${formatPrice(total - given)}`;
+        } else {
+            resultEl.style.color = 'green';
+            resultEl.innerText = `Troco: ${formatPrice(given - total)} — Pagamento em dinheiro simulado recebido. Obrigado!`;
+            // opcional: limpar carrinho após simular
+            setTimeout(clearCartAfterPayment, 1200);
+        }
+    });
+
+    /* ====== limpar carrinho (após pagamento simulado) ====== */
+    function clearCartAfterPayment(){
+        for(const k of Object.keys(cart)) delete cart[k];
+        renderCart();
+        closeModal();
+        cartPanel.style.display = 'none';
+    }
+
+    /* Inicializa estado se já houver preços visíveis */
+    renderCart();
+
+    /* Fecha modal clicando fora do conteúdo */
+    modalBackdrop.addEventListener('click', (e) => {
+        if(e.target === modalBackdrop) closeModal();
+    });
+
+    /* Ativa checkout pelo botão principal - resposta de tecla Esc fecha modal */
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') {
+            if(modalBackdrop.style.display === 'flex') closeModal();
+            else if(cartPanel.style.display === 'block') cartPanel.style.display = 'none';
+        }
+    });
+</script>
+<!-- ====== Fim: Carrinho + Pagamento ====== -->
+
+
+
+
+</body>
+</html>

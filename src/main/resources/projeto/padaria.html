@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padaria Pão & Sabor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topo">
+    <h1>Padaria Pão & Sabor 🍞</h1>
+    <p>Bem-vindo(a), <span id="usuarioNome"></span>!</p>
+</header>
+
+<section class="principal">
+    <h2>Escolha o que deseja fazer:</h2>
+    <a href="menu.html" class="botao">🍰 Ver Menu</a>
+    <a href="#" class="botao" onclick="sair()">🚪 Sair</a>
+</section>
+
+<script>
+    const nome = localStorage.getItem("usuario");
+    document.getElementById("usuarioNome").innerText = nome || "Visitante";
+
+    function sair() {
+        localStorage.removeItem("usuario");
+        window.location.href = "index.html";
+    }
+</script>
+</body>
+</html>
