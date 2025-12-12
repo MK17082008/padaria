@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Padaria Doce Amor</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Comic Sans MS", Arial;
+            background: linear-gradient(180deg, #ffe5e5, #fff5f5, #ffeaea);
+            overflow-x: hidden;
+            cursor: url('https://i.imgur.com/sF1WolX.png'), auto; /* cursor de biscoito */
+        }
+
+        /* LOGO COM BRILHO */
+        .logo {
+            text-align: center;
+            font-size: 38px;
+            margin-top: 25px;
+            color: #e60000;
+            text-shadow: 0 0 10px white, 0 0 20px #ff4d4d;
+            animation: brilho 2s infinite alternate ease-in-out;
+        }
+        @keyframes brilho {
+            from { text-shadow: 0 0 5px #fff; }
+            to   { text-shadow: 0 0 15px #ff6666; }
+        }
+
+        /* CALDA VERMELHA DESCENDO */
+        .calda {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(#e60000, #cc0000);
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            animation: descer 2s ease forwards;
+            z-index: 1;
+        }
+        @keyframes descer {
+            from { height: 0; }
+            to   { height: 180px; }
+        }
+
+        /* CALDA ESCORRENDO */
+        .calda::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            background: #cc0000;
+            border-radius: 50%;
+            top: 140px;
+            filter: blur(10px);
+            animation: escorrer 5s infinite ease-in-out;
+            opacity: .6;
+        }
+        @keyframes escorrer {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* FUMAÇA VERMELHA */
+        .fumaca {
+            position: absolute;
+            top: 140px;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #ffffff80, transparent);
+            border-radius: 50%;
+            animation: vapor 3s infinite;
+            opacity: .7;
+            z-index: 0;
+        }
+        @keyframes vapor {
+            0% { transform: translate(-50%,10px) scale(0.5); opacity: .6; }
+            50% { transform: translate(-50%,-20px) scale(1); opacity: .3; }
+            100% { transform: translate(-50%,-40px) scale(1.2); opacity: 0; }
+        }
+
+        /* GOTINHAS DA CALDA */
+        .gota {
+            position: absolute;
+            top: 150px;
+            width: 35px;
+            height: 55px;
+            background: #e60000;
+            border-radius: 50px;
+            animation: pingar 2s infinite ease-in-out;
+            z-index: 1;
+        }
+        .gota1 { left: 22%; }
+        .gota2 { left: 50%; animation-delay: .4s; }
+        .gota3 { left: 78%; animation-delay: .8s; }
+        @keyframes pingar {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(25px); opacity: 0; }
+        }
+
+        /* GRANULADOS COLORIDOS */
+        .granulado {
+            position: absolute;
+            top: -10px;
+            width: 8px;
+            height: 16px;
+            border-radius: 3px;
+            animation: cair 4s linear infinite;
+            opacity: .9;
+            z-index: 0;
+        }
+        @keyframes cair {
+            from { transform: translateY(0) rotate(0); }
+            to   { transform: translateY(120vh) rotate(360deg); }
+        }
+        .g1 { background: #e60000; }
+        .g2 { background: #ff4d4d; }
+        .g3 { background: #ff9999; }
+        .g4 { background: #ff6666; }
+        .g5 { background: #ff1a1a; }
+
+        /* FORMULÁRIO */
+        .container {
+            margin: 220px auto 0;
+            background: #ffffffcc;
+            padding: 25px;
+            width: 330px;
+            border-radius: 20px;
+            border: 4px dashed #e60000;
+            animation: aparecer 1s ease-out;
+            box-shadow: 0 0 25px rgba(255,0,0,0.4);
+            position: relative;
+            z-index: 2;
+        }
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #cc0000;
+            font-size: 26px;
+            text-shadow: 2px 2px 0 white;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #e60000, #cc0000);
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #990000;
+            transition: 0.3s;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 0 #880000;
+            filter: brightness(1.1);
+        }
+
+        /* MÚSICA */
+        audio { display: none; }
+    </style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2021/09/20/audio_9272d31f01.mp3?filename=soft-piano-110582.mp3" type="audio/mp3">
+</audio>
+
+<div class="logo">Padaria Doce Amor 🍰</div>
+
+<div class="calda"></div>
+<div class="fumaca"></div>
+<div class="gota gota1"></div>
+<div class="gota gota2"></div>
+<div class="gota gota3"></div>
+
+<script>
+    for(let i=0;i<25;i++){
+        let g=document.createElement("div");
+        g.classList.add("granulado");
+        let cores=["g1","g2","g3","g4","g5"];
+        g.classList.add(cores[Math.floor(Math.random()*5)]);
+        g.style.left=Math.random()*100+"%";
+        g.style.animationDuration=(Math.random()*3+3)+"s";
+        g.style.animationDelay=Math.random()*2+"s";
+        document.body.appendChild(g);
+    }
+</script>
+
+<div class="container">
+    <h2>Cadastro</h2>
+    <form onsubmit="salvarCadastro(event)">
+        <input type="text" id="nome" placeholder="Nome completo" required>
+        <input type="text" id="cpf" placeholder="CPF" required>
+        <input type="tel" id="tel" placeholder="Telefone" required>
+        <input type="date" id="data" required>
+        <input type="email" id="email" placeholder="E-mail" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+
+<script>
+    function salvarCadastro(event){
+        event.preventDefault();
+        localStorage.setItem("clienteNome", document.getElementById("nome").value);
+        window.location.href = "padaria.html";
+    }
+</script>
+
+</body>
+</html>

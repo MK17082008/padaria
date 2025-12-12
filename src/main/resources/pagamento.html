@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - Padaria Doce Amor</title>
+    <style>
+        body {
+            margin:0; padding:0;
+            font-family:"Comic Sans MS", Arial;
+            background: linear-gradient(180deg, #ffe5e5, #fff5f5, #ffeaea);
+            cursor: url('https://i.imgur.com/sF1WolX.png'), auto;
+        }
+
+        .logo {
+            text-align:center; font-size:40px; margin-top:40px;
+            color:#e60000;
+            text-shadow:0 0 10px white,0 0 20px #ff4d4d;
+            animation: brilho 2s infinite alternate ease-in-out;
+        }
+        @keyframes brilho { from{ text-shadow:0 0 5px #fff; } to{ text-shadow:0 0 15px #ff6666; } }
+
+        .calda { position:absolute; top:0; left:0; width:100%; height:160px; background: linear-gradient(#e60000,#cc0000); border-bottom-left-radius:50%; border-bottom-right-radius:50%; z-index:1; }
+        .fumaca { position:absolute; top:130px; left:50%; width:80px; height:80px; background: radial-gradient(circle,#ffffff80,transparent); border-radius:50%; animation:vapor 3s infinite; opacity:.5; z-index:0; }
+        @keyframes vapor { 0%{ transform:translate(-50%,10px) scale(0.5); opacity:.7; } 50%{ transform:translate(-50%,-20px) scale(1); opacity:.3; } 100%{ transform:translate(-50%,-50px) scale(1.2); opacity:0; } }
+
+        .gota { position:absolute; top:130px; width:35px; height:55px; background:#e60000; border-radius:50px; animation: pingar 2s infinite ease-in-out; z-index:1; }
+        .g1{left:20%;} .g2{left:50%; animation-delay:0.4s;} .g3{left:75%; animation-delay:0.8s;}
+        @keyframes pingar { 0%{ transform:translateY(0);opacity:1;} 100%{transform:translateY(20px);opacity:0;} }
+
+        .granulado { position:absolute; top:-10px; width:8px; height:16px; border-radius:3px; animation:cair 4s linear infinite; opacity:.9; z-index:0; }
+        @keyframes cair { from{transform:translateY(0) rotate(0);} to{transform:translateY(120vh) rotate(360deg);} }
+
+        .gA{background:#e60000;} .gB{background:#ff4d4d;} .gC{background:#ff9999;} .gD{background:#ff6666;} .gE{background:#ff1a1a;}
+
+        #clienteNome { text-align:center; font-size:22px; color:#cc0000; margin-top:10px; }
+
+        .pagamento-container {
+            margin:220px auto 50px;
+            width:90%; max-width:500px;
+            background:#ffffffcc;
+            padding:20px;
+            border-radius:15px;
+            border:4px dashed #e60000;
+            box-shadow:0 0 25px rgba(255,0,0,0.4);
+            position:relative; z-index:2;
+        }
+
+        h2 { text-align:center; color:#cc0000; font-size:26px; margin-bottom:15px; }
+
+        form select, form input, form button {
+            width:100%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc; font-size:15px;
+        }
+
+        form button {
+            background:linear-gradient(45deg,#e60000,#cc0000);
+            color:white; border:none; font-weight:bold; cursor:pointer;
+            box-shadow:0 3px 0 #990000; transition:0.3s;
+        }
+        form button:hover { transform:translateY(-3px); box-shadow:0 6px 0 #880000; filter:brightness(1.1); }
+
+        .resumo {
+            margin-bottom:15px;
+            padding:10px;
+            background:#ffebeb;
+            border-radius:8px;
+        }
+        .resumo p { margin:5px 0; font-weight:bold; color:#cc0000; }
+
+        #trocoDiv {
+            margin-top:10px;
+            font-weight:bold;
+            color:#e60000;
+            display:none;
+            font-size:18px;
+        }
+
+        #pixCode {
+            margin-top:10px;
+            text-align:center;
+            font-weight:bold;
+            color:#008000;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calda"></div>
+<div class="fumaca"></div>
+<div class="gota g1"></div>
+<div class="gota g2"></div>
+<div class="gota g3"></div>
+
+<script>
+    for(let i=0;i<30;i++){
+        let g=document.createElement("div");
+        g.classList.add("granulado");
+        let cores=["gA","gB","gC","gD","gE"];
+        g.classList.add(cores[Math.floor(Math.random()*5)]);
+        g.style.left=Math.random()*100+"%";
+        g.style.animationDuration=(Math.random()*3+3)+"s";
+        g.style.animationDelay=Math.random()*2+"s";
+        document.body.appendChild(g);
+    }
+</script>
+
+<div class="logo">Padaria Doce Amor 🍰</div>
+<p id="clienteNome"></p>
+
+<div class="pagamento-container">
+    <h2>Pagamento</h2>
+
+    <div class="resumo" id="resumoPedido"></div>
+
+    <form onsubmit="finalizarPagamento(event)">
+
+        <label>Forma de Pagamento:</label>
+        <select id="metodoPagamento" onchange="alterarMetodo()">
+            <option value="pix">PIX</option>
+            <option value="dinheiro">Dinheiro</option>
+        </select>
+
+        <!-- PIX -->
+        <p id="pixCode">Chave PIX: <br><strong>padariadoceamor@pix.com</strong></p>
+
+        <!-- DINHEIRO -->
+        <div id="dinheiroInput" style="display:none;">
+            <input type="number" id="valorPago" placeholder="Quanto você vai pagar?" min="0" step="0.01" oninput="calcularTroco()">
+            <p id="trocoDiv">Troco: R$ 0,00</p>
+        </div>
+
+        <button type="submit">Confirmar Pagamento</button>
+    </form>
+</div>
+
+<script>
+    const clienteNome = localStorage.getItem("clienteNome") || "Cliente";
+    document.getElementById("clienteNome").innerText = "Olá, " + clienteNome + "!";
+
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    function mostrarResumo() {
+        const resumoDiv = document.getElementById("resumoPedido");
+        resumoDiv.innerHTML = "";
+
+        if(carrinho.length===0){
+            resumoDiv.innerHTML="<p>Seu carrinho está vazio.</p>";
+            return;
+        }
+
+        let total=0;
+        carrinho.forEach(item=>{
+            const subtotal = item.preco * item.quantidade;
+            total += subtotal;
+            resumoDiv.innerHTML += `<p>${item.nome} x ${item.quantidade} = R$ ${subtotal.toFixed(2)}</p>`;
+        });
+
+        resumoDiv.innerHTML += `<p>Total: R$ <span id="totalPedido">${total.toFixed(2)}</span></p>`;
+    }
+
+    function alterarMetodo(){
+        const metodo = document.getElementById("metodoPagamento").value;
+
+        document.getElementById("pixCode").style.display = metodo === "pix" ? "block" : "none";
+        document.getElementById("dinheiroInput").style.display = metodo === "dinheiro" ? "block" : "none";
+        document.getElementById("trocoDiv").style.display = "none";
+    }
+
+    function calcularTroco(){
+        const total = parseFloat(document.getElementById("totalPedido").innerText);
+        const pago = parseFloat(document.getElementById("valorPago").value) || 0;
+        const trocoDiv = document.getElementById("trocoDiv");
+
+        trocoDiv.style.display = "block";
+
+        if(pago >= total){
+            trocoDiv.innerText = "Troco: R$ " + (pago - total).toFixed(2);
+            trocoDiv.style.color = "#008000";
+        } else {
+            trocoDiv.innerText = "Dinheiro insuficiente!";
+            trocoDiv.style.color = "#e60000";
+        }
+    }
+
+    function finalizarPagamento(event){
+        event.preventDefault();
+
+        const metodo = document.getElementById("metodoPagamento").value;
+        const total = parseFloat(document.getElementById("totalPedido").innerText);
+
+        if(metodo === "dinheiro"){
+            const pago = parseFloat(document.getElementById("valorPago").value);
+
+            if(isNaN(pago) || pago < total){
+                alert("Dinheiro insuficiente para o pagamento!");
+                return;
+            }
+        }
+
+        alert("Pagamento confirmado! Obrigado pela preferência ❤️");
+        localStorage.removeItem("carrinho");
+        window.location.href = "padaria.html";
+    }
+
+    mostrarResumo();
+</script>
+
+</body>
+</html>
